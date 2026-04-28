@@ -75,15 +75,10 @@ $user = getDetails($conn);
             <div class="welcome-header" style="margin-top: -26px;">
                 <h1 class="welcome-text">Profile Pengguna</h1>
                 <div class="left-actions">
-                    <?php if ($_SESSION['role'] == 'staff') { ?>
-                        <a href="tukar_pass_user.php" class="btn btn-primary">
-                            <i class="fas fa-key"></i> Tukar Kata Laluan
-                        </a>
-                    <?php } else if ($_SESSION['role'] == 'admin') { ?>
-                            <a href="tukar_pass_admin.php" class="btn btn-primary">
-                                <i class="fas fa-key"></i> Tukar Kata Laluan
-                            </a>
-                    <?php } ?>
+
+                    <a href="tukar_pass_user.php" class="btn btn-primary">
+                        <i class="fas fa-key"></i> Tukar Kata Laluan
+                    </a>
 
                     <a href="#" onclick="handleLogout()" class="btn btn-logout">
                         <i class="fas fa-sign-out-alt"></i> Log Keluar

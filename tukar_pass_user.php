@@ -7,10 +7,10 @@ if (!isset($_SESSION['logged_in'])) {
     exit();
 }
 
-if ($_SESSION['role'] !== 'staff') {
-    header("Location: error.html");
-    exit();
-}
+// if ($_SESSION['role'] !== 'staff') {
+//     header("Location: error.html");
+//     exit();
+// }
 
 $userId = $_SESSION['user_id'];
 $message = '';
