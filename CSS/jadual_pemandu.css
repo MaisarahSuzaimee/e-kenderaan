@@ -1,0 +1,630 @@
+/**
+ * Jadual_pemandu.php — professional calendar & modals (scoped)
+ */
+
+.jadual-pemandu-page .main-content {
+    margin-top: -26px;
+}
+
+.jadual-pemandu-page .jadual-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.jadual-pemandu-page .jadual-hero-text h1 {
+    margin: 0 0 0.35rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #111827;
+}
+
+.jadual-pemandu-page .jadual-hero-sub {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+    max-width: 36rem;
+    line-height: 1.45;
+}
+
+.jadual-pemandu-page .jadual-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.jadual-pemandu-page .jadual-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.04);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.jadual-pemandu-page .calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.jadual-pemandu-page .legend-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.jadual-pemandu-page .legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.jadual-pemandu-page .legend-swatch.leave-swatch {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.35);
+}
+
+/* Legend swatches — match leave-pal-* (kod jenis cuti) */
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-0 {
+    background: linear-gradient(135deg, #93c5fd, #2563eb);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-1 {
+    background: linear-gradient(135deg, #6ee7b7, #059669);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-2 {
+    background: linear-gradient(135deg, #fcd34d, #d97706);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-3 {
+    background: linear-gradient(135deg, #fda4af, #e11d48);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-4 {
+    background: linear-gradient(135deg, #c4b5fd, #7c3aed);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-5 {
+    background: linear-gradient(135deg, #67e8f9, #0891b2);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-6 {
+    background: linear-gradient(135deg, #fdba74, #ea580c);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-7 {
+    background: linear-gradient(135deg, #f9a8d4, #db2777);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-8 {
+    background: linear-gradient(135deg, #bef264, #65a30d);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-9 {
+    background: linear-gradient(135deg, #a5b4fc, #4f46e5);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-10 {
+    background: linear-gradient(135deg, #5eead4, #0d9488);
+}
+.jadual-pemandu-page .legend-swatch.legend-swatch--pal-11 {
+    background: linear-gradient(135deg, #e879f9, #c026d3);
+}
+
+.jadual-pemandu-page .legend-swatch.today-swatch {
+    border-radius: 50%;
+    background: #2563eb;
+    box-shadow: 0 0 0 2px #fff, 0 1px 3px rgba(37, 99, 235, 0.4);
+}
+
+.jadual-pemandu-page .calendar-navigation-gcal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.jadual-pemandu-page .calendar-navigation-gcal .nav-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.jadual-pemandu-page .calendar-navigation-gcal .btn-nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #374151;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.jadual-pemandu-page .calendar-navigation-gcal .btn-nav-icon:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    color: #111827;
+}
+
+.jadual-pemandu-page .calendar-month-pill {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    padding: 0.5rem 1rem;
+    background: #f9fafb;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    letter-spacing: -0.02em;
+}
+
+.jadual-pemandu-page .calendar-navigation-gcal .btn-today {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #223344;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid #1a2838;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.jadual-pemandu-page .calendar-navigation-gcal .btn-today:hover {
+    background: #1a2a3a;
+    box-shadow: 0 2px 8px rgba(34, 51, 68, 0.25);
+}
+
+/* Calendar grid — overrides shared kalendar_tempahan.css only inside this page */
+.jadual-pemandu-page .calendar {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.jadual-pemandu-page .calendar th {
+    background: #223344;
+    color: #fff;
+    padding: 12px 8px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.jadual-pemandu-page .calendar th.week-number-header {
+    width: 44px;
+    font-size: 0.65rem;
+    padding: 12px 4px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.jadual-pemandu-page .calendar td {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    vertical-align: top;
+    min-height: 92px;
+    background: #fff;
+    transition: background 0.12s ease;
+}
+
+.jadual-pemandu-page .calendar td.week-number-cell {
+    width: 44px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+    background: #fafbfc;
+    border-right: 2px solid #e5e7eb;
+}
+
+.jadual-pemandu-page .calendar td.weekend:not(.empty) {
+    background: #fafbfc;
+}
+
+.jadual-pemandu-page .calendar td.empty {
+    background: #f9fafb;
+}
+
+.jadual-pemandu-page .calendar td.empty.weekend-empty {
+    background: linear-gradient(180deg, #fafbfc 0%, #f3f4f6 100%);
+}
+
+.jadual-pemandu-page .calendar td.today {
+    background: #eff6ff;
+    box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+.jadual-pemandu-page .calendar td .date-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.jadual-pemandu-page .calendar td.today .date-number {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.35);
+}
+
+/* Leave chips — base; colour by .leave-pal-N (kod jenis cuti) */
+.jadual-pemandu-page .leave-event {
+    padding: 6px 8px;
+    margin: 4px 0;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 8px;
+    line-height: 1.25;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 3px solid #64748b;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.jadual-pemandu-page .leave-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.jadual-pemandu-page .leave-event .leave-name {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #334155;
+    cursor: default;
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-0 {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: rgba(37, 99, 235, 0.22);
+    border-left-color: #2563eb;
+}
+.jadual-pemandu-page .leave-event.leave-pal-0 .leave-name {
+    color: #1e40af;
+}
+.jadual-pemandu-page .leave-event.leave-pal-0:hover {
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-1 {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: rgba(5, 150, 105, 0.22);
+    border-left-color: #059669;
+}
+.jadual-pemandu-page .leave-event.leave-pal-1 .leave-name {
+    color: #047857;
+}
+.jadual-pemandu-page .leave-event.leave-pal-1:hover {
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-2 {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-color: rgba(217, 119, 6, 0.25);
+    border-left-color: #d97706;
+}
+.jadual-pemandu-page .leave-event.leave-pal-2 .leave-name {
+    color: #b45309;
+}
+.jadual-pemandu-page .leave-event.leave-pal-2:hover {
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-3 {
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    border-color: rgba(225, 29, 72, 0.22);
+    border-left-color: #e11d48;
+}
+.jadual-pemandu-page .leave-event.leave-pal-3 .leave-name {
+    color: #be123c;
+}
+.jadual-pemandu-page .leave-event.leave-pal-3:hover {
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-4 {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-color: rgba(124, 58, 237, 0.22);
+    border-left-color: #7c3aed;
+}
+.jadual-pemandu-page .leave-event.leave-pal-4 .leave-name {
+    color: #6d28d9;
+}
+.jadual-pemandu-page .leave-event.leave-pal-4:hover {
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-5 {
+    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+    border-color: rgba(8, 145, 178, 0.22);
+    border-left-color: #0891b2;
+}
+.jadual-pemandu-page .leave-event.leave-pal-5 .leave-name {
+    color: #0e7490;
+}
+.jadual-pemandu-page .leave-event.leave-pal-5:hover {
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-6 {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border-color: rgba(234, 88, 12, 0.22);
+    border-left-color: #ea580c;
+}
+.jadual-pemandu-page .leave-event.leave-pal-6 .leave-name {
+    color: #c2410c;
+}
+.jadual-pemandu-page .leave-event.leave-pal-6:hover {
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-7 {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    border-color: rgba(219, 39, 119, 0.22);
+    border-left-color: #db2777;
+}
+.jadual-pemandu-page .leave-event.leave-pal-7 .leave-name {
+    color: #be185d;
+}
+.jadual-pemandu-page .leave-event.leave-pal-7:hover {
+    box-shadow: 0 4px 12px rgba(219, 39, 119, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-8 {
+    background: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%);
+    border-color: rgba(101, 163, 13, 0.25);
+    border-left-color: #65a30d;
+}
+.jadual-pemandu-page .leave-event.leave-pal-8 .leave-name {
+    color: #4d7c0f;
+}
+.jadual-pemandu-page .leave-event.leave-pal-8:hover {
+    box-shadow: 0 4px 12px rgba(101, 163, 13, 0.2);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-9 {
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border-color: rgba(79, 70, 229, 0.22);
+    border-left-color: #4f46e5;
+}
+.jadual-pemandu-page .leave-event.leave-pal-9 .leave-name {
+    color: #4338ca;
+}
+.jadual-pemandu-page .leave-event.leave-pal-9:hover {
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-10 {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border-color: rgba(13, 148, 136, 0.22);
+    border-left-color: #0d9488;
+}
+.jadual-pemandu-page .leave-event.leave-pal-10 .leave-name {
+    color: #0f766e;
+}
+.jadual-pemandu-page .leave-event.leave-pal-10:hover {
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.18);
+}
+
+.jadual-pemandu-page .leave-event.leave-pal-11 {
+    background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+    border-color: rgba(192, 38, 211, 0.22);
+    border-left-color: #c026d3;
+}
+.jadual-pemandu-page .leave-event.leave-pal-11 .leave-name {
+    color: #a21caf;
+}
+.jadual-pemandu-page .leave-event.leave-pal-11:hover {
+    box-shadow: 0 4px 12px rgba(192, 38, 211, 0.18);
+}
+
+.jadual-pemandu-page .leave-quick-tooltip {
+    position: fixed;
+    z-index: 10000;
+    background: #111827;
+    color: #f9fafb;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    pointer-events: none;
+    max-width: 280px;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.18),
+        0 2px 8px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: none;
+}
+
+.jadual-pemandu-page .leave-quick-tooltip strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.jadual-pemandu-page .leave-tooltip-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #fff;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    letter-spacing: 0.02em;
+}
+
+.jadual-pemandu-page .leave-tooltip-desc {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #e5e7eb;
+}
+
+.jadual-pemandu-page .leave-tooltip-meta {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    opacity: 0.88;
+    color: #d1d5db;
+}
+
+/* Modals */
+.jadual-pemandu-page #leaveDetailModal .modal-content2,
+.jadual-pemandu-page #addLeaveModal .modal-content2 {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.jadual-pemandu-page #leaveDetailModal .form-title,
+.jadual-pemandu-page #addLeaveModal .form-title {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+.jadual-pemandu-page #leaveDetailModal .form-group label,
+.jadual-pemandu-page #addLeaveModal .form-label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.875rem;
+}
+
+.jadual-pemandu-page #leaveDetailModal .form-control[readonly],
+.jadual-pemandu-page #addLeaveModal .form-control {
+    border-radius: 8px;
+    border-color: #e5e7eb;
+}
+
+/* Last-day adjust / cancel (modal) */
+.jadual-pemandu-page .jadual-leave-hint {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #4b5563;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin: 0 0 1rem 0;
+}
+
+.jadual-pemandu-page .jadual-leave-hint--muted {
+    background: #fafafa;
+    color: #6b7280;
+}
+
+.jadual-pemandu-page .jadual-leave-adjust {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.jadual-pemandu-page .jadual-leave-adjust__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.75rem 0;
+}
+
+.jadual-pemandu-page .jadual-leave-adjust__block {
+    margin-bottom: 1.25rem;
+}
+
+.jadual-pemandu-page .jadual-leave-adjust__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 0.5rem 0;
+}
+
+.jadual-pemandu-page .jadual-leave-form .jadual-leave-adjust__btn {
+    margin-top: 0.5rem;
+}
+
+.jadual-pemandu-page .jadual-leave-adjust__btn {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .jadual-pemandu-page .jadual-hero-text h1 {
+        font-size: 1.25rem;
+    }
+
+    .jadual-pemandu-page .jadual-card {
+        padding: 1rem;
+    }
+
+    .jadual-pemandu-page .calendar th,
+    .jadual-pemandu-page .calendar td {
+        padding: 6px 4px;
+        font-size: 0.8rem;
+    }
+
+    .jadual-pemandu-page .calendar td .date-number {
+        min-width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
+    }
+
+    .jadual-pemandu-page .leave-event {
+        font-size: 0.68rem;
+        padding: 4px 6px;
+    }
+
+    .jadual-pemandu-page .calendar-navigation-gcal .calendar-month-pill {
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .jadual-pemandu-page .calendar-navigation-gcal .nav-group {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .jadual-pemandu-page .calendar th.week-number-header,
+    .jadual-pemandu-page .calendar td.week-number-cell {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jadual-pemandu-page .leave-event {
+        transition: none;
+    }
+    .jadual-pemandu-page .leave-event:hover {
+        transform: none;
+    }
+}
