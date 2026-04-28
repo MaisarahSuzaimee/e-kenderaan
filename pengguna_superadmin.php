@@ -67,13 +67,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $mail->isSMTP();
               $mail->Host = 'smtp.gmail.com';
               $mail->SMTPAuth = true;
-              $mail->Username = 'msrhszm@gmail.com'; // 🔥 your email
-              $mail->Password = 'miar lgbv cftw jhzt';    // 🔥 NOT normal password
-              $mail->SMTPSecure = 'tls';
+              $mail->Username = 'sistem.kdh@moh.gov.my';
+              $mail->Password = 'gwdv szgw kkkb tkwz';
+              $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+              // $mail->Username = 'msrhszm@gmail.com'; 
+              // $mail->Password = 'miar lgbv cftw jhzt';   
+              // $mail->SMTPSecure = 'tls';
               $mail->Port = 587;
 
               // Sender & receiver
-              $mail->setFrom('msrhszm@gmail.com', 'Sistem Tempahan Kenderaan');
+              $mail->setFrom('sistem.kdh@moh.gov.my', 'Sistem Tempahan Kenderaan');
               $mail->addAddress($email, $nama);
 
               // Content
@@ -686,7 +689,7 @@ if (isset($_SESSION['updated_record'])) {
     <div class="modal-content2">
       <div class="container">
         <div class="modal-header">
-          <span class="close" onclick="handleCancel()">&times;</span>
+          <span class="close" onclick="closeModal('addPenggunaModal')">&times;</span>
           <h2 class="form-title">Daftar Pengguna Baharu</h2>
         </div>
 
@@ -805,7 +808,7 @@ if (isset($_SESSION['updated_record'])) {
               <i class="fas fa-save"></i>
               Daftar
             </button>
-            <button type="button" class="btn btn-cancel" onclick="handleCancel()">
+            <button type="button" class="btn btn-cancel" onclick="closeModal('addPenggunaModal')">
               <i class="fas fa-times"></i> Batal
             </button>
           </div>
