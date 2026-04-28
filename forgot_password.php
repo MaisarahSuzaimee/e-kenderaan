@@ -37,10 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->SMTPAuth = true;
                 $mail->Username = 'msrhszm@gmail.com';
                 $mail->Password = 'miar lgbv cftw jhzt';
-                $mail->SMTPSecure = 'tls';
+                // $mail->Username = 'sistem.kdh@moh.gov.my';
+                // $mail->Password = 'gwdv szgw kkkb tkwz';
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;;
                 $mail->Port = 587;
 
-                $mail->setFrom('msrhszm@gmail.com', 'Sistem Tempahan Kenderaan');
+                $mail->setFrom('sistem.kdh@moh.gov.my', 'Sistem Tempahan Kenderaan');
                 $mail->addAddress($user['email']);
 
                 $mail->isHTML(true);
